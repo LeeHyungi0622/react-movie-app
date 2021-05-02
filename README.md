@@ -35,6 +35,24 @@
 
 # **Project Status**
 
+🗓️ 2021.05.01(Sat)
+
+**(1) Issue1) Initial setup for project**
+
+→ [https://github.com/LeeHyungi0622/react-movie-app/issues/1](https://github.com/LeeHyungi0622/react-movie-app/issues/1)
+
+**(2) Issue3) header 컴포넌트 만들기**
+
+→ [https://github.com/LeeHyungi0622/react-movie-app/issues/3](https://github.com/LeeHyungi0622/react-movie-app/issues/3)
+
+**(3) Issue5) Loading 컴포넌트 만들기**
+
+→ [https://github.com/LeeHyungi0622/react-movie-app/issues/5](https://github.com/LeeHyungi0622/react-movie-app/issues/5)
+
+**(4) Issue6) header 컴포넌트의 메뉴 클릭 이벤트와 관련된 테스트 코드작성**
+
+→ [https://github.com/LeeHyungi0622/react-movie-app/issues/6](https://github.com/LeeHyungi0622/react-movie-app/issues/6)
+
 # **Project Screen Shots**
 
 # **Installation and Setup Instruction**
