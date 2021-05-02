@@ -7,7 +7,7 @@ const Container = styled.div`
 
 const Search = () => {
     return (
-        <Container>
+        <Container data-testid="search-page-container">
             <h1>Search page</h1>
         </Container>
     );
