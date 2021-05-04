@@ -51,10 +51,10 @@ const Poster = () => {
                 <PosterImage />
                 <Rating>Rating</Rating>
                 <PosterCaption>
-                    <Title data-testid="title">
+                    <Title data-testid="poster-title">
                         Title
                     </Title>
-                    <Year data-testid="year">
+                    <Year data-testid="poster-year">
                         Year
                     </Year>
                 </PosterCaption>
