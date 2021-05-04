@@ -7,7 +7,7 @@ const Container = styled.div`
 
 const TV = () => {
     return(
-        <Container>
+        <Container data-testid="tv-page-container">
             <h1>TV page</h1>
         </Container>
     );

@@ -7,7 +7,7 @@ const Container = styled.div`
 
 const Movie = () => {
     return (
-        <Container>
+        <Container data-testid="movie-page-container">
             <h1>Movie page</h1>
         </Container>
     );
