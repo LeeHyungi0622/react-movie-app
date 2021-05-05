@@ -1,10 +1,11 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import 'regenerator-runtime/runtime';
 import MockAdapter from 'axios-mock-adapter';
 import axios from 'axios';
 import Movie from './Pages/Movie';
+import { MemoryRouter } from 'react-router';
 
 describe('Movie 컨텐츠 관련 API 테스트', () => {
     const mock = new MockAdapter(axios, { delayResponse: 200 });
@@ -32,9 +33,9 @@ describe('Movie 컨텐츠 관련 API 테스트', () => {
         });
     test('nowPlaying API method 테스트 - 데이터가 문제없이 화면에 로드되는지 확인', async() => {
 
-        const { findByTestId } = render( < Movie / > );
+        const { findByTestId } = render( <MemoryRouter><Movie /></MemoryRouter>);
 
-        await findByTestId('loading-text');
-        await findByTestId('contents-list');
+        await waitFor(() => findByTestId('loading-text')); 
+        await waitFor(() => findByTestId('section-title'));
     });
 });
