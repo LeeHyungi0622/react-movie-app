@@ -66,11 +66,17 @@ const Poster = ({ id, imageUrl, title, rating, year, isMovie }) => {
 };
 
 Poster.propTypes = {
-    id: PropTypes.number.isRequired,
+    id: PropTypes.number,
     imageUrl: PropTypes.string,
-    title: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    year: PropTypes.string,
+    title: PropTypes.string,
+    rating: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
+    year: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
     isMovie: PropTypes.bool
 };
 
