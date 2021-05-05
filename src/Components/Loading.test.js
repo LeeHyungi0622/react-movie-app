@@ -4,7 +4,7 @@ import Loading from './Loading';
 
 describe('<Loading /> 컴포넌트', () => {
     test('<Loading /> 컴포넌트가 문제없이 렌더링되는지 확인', () => {
-        render( <Loading /> );
+        render( < Loading / > );
     });
     test('렌더링된 <Loading /> 컴포넌트의 내부에 spinner가 존재하는지 확인', () => {
         const { getByTestId } = render( < Loading / > );
