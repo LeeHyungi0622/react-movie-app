@@ -4,7 +4,7 @@ import { screen, render, waitFor } from '@testing-library/react';
 import 'regenerator-runtime/runtime';
 import MockAdapter from 'axios-mock-adapter';
 import axios from 'axios';
-import Movie from './Pages/Movie';
+import Movie from '../Pages/Movie';
 import { MemoryRouter } from 'react-router';
 
 describe('Movie 컨텐츠 관련 API 테스트', () => {
