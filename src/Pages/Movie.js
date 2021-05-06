@@ -12,6 +12,8 @@ const Container = styled.div`
 const Movie = () => {
     const [loading, setLoading] = useState(true);
     const [nowPlaying, setNowPlaying] = useState([]);
+    const [upcoming, setUpcoming] = useState([]);
+    const [popular, setPopular] = useState([]);
     const [error, setError] = useState();
     useEffect(() => {
         getData();
@@ -20,7 +22,11 @@ const Movie = () => {
     const getData = async() => {
         try{
             const { data: {results: nowPlaying}} = await moviesApi.nowPlaying();
+            const { data: {results: popular}} = await moviesApi.popular();
+            const { data: {results: upcoming}} = await moviesApi.upcoming();
             setNowPlaying(nowPlaying);
+            setUpcoming(upcoming);
+            setPopular(popular);
         }catch(e){
                 setError(e);
         } finally {
@@ -47,11 +53,41 @@ const Movie = () => {
                         }
                     </PosterSection>
                 )}
-                
-                <h1>Movie page</h1>
-                <div data-testid="contents-list">
-                    nowPlaying && nowPlaying > 0 && {nowPlaying.map(movie => (<p key={movie.id}>{movie.original_title}</p>))}
-                </div>
+                { popular && popular.length > 0 && (
+                    <PosterSection title="흥행중인 영화">
+                        {
+                            popular.map(movie => (
+                                <Poster
+                                    key={movie.id}
+                                    id={movie.id}
+                                    imageUrl={movie.poster_path}
+                                    title={movie.original_title}
+                                    rating={movie.vote_average}
+                                    year={movie.release_date.substring(0, 4)}
+                                    isMovie={true}
+                                />
+                            ))
+                        }
+                    </PosterSection>
+                )}
+                { upcoming && upcoming.length > 0 && (
+                    <PosterSection title="개봉예정인 영화">
+                        {
+                            upcoming.map(movie => (
+                                <Poster
+                                    key={movie.id}
+                                    id={movie.id}
+                                    imageUrl={movie.poster_path}
+                                    title={movie.original_title}
+                                    rating={movie.vote_average}
+                                    year={movie.release_date.substring(0, 4)}
+                                    isMovie={true}
+                                />
+                            ))
+                        }
+                    </PosterSection>
+                )}
+                { error && error}
             </Container>
         )
     );

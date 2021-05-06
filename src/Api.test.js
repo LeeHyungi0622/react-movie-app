@@ -1,6 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import { render, waitFor } from '@testing-library/react';
+import { screen, render, waitFor } from '@testing-library/react';
 import 'regenerator-runtime/runtime';
 import MockAdapter from 'axios-mock-adapter';
 import axios from 'axios';
@@ -27,15 +27,37 @@ describe('Movie 컨텐츠 관련 API 테스트', () => {
     };
 
     mock
-        .onGet('https://api.themoviedb.org/3/movie/now_playing')
+        .onGet('https://api.themoviedb.org/3/movie/now_playing',{
+            params: {
+                api_key: "06e43891a2b919ee11ba3f3894d63374",
+                language: "en-US"
+            }
+        })
         .reply(200, {
             data
-        });
+        })
+        .onGet('https://api.themoviedb.org/3/movie/upcoming')
+        .reply(200, {
+            data
+        })
+    
+    beforeEach(async() => {
+        render( <MemoryRouter><Movie /></MemoryRouter>);
+    });
+
+    test('초기에 Loading 컴포넌트가 화면에 로드되는지 확인', async() => {
+        await waitFor(() => screen.findByTestId('loading-text'));
+    });
+
     test('nowPlaying API method 테스트 - 데이터가 문제없이 화면에 로드되는지 확인', async() => {
+        await waitFor(() => expect(screen.getAllByText('현재 상영중인 영화')).toBeTruthy());
+    });
 
-        const { findByTestId } = render( <MemoryRouter><Movie /></MemoryRouter>);
+    test('upcoming API method 테스트 - 데이터가 문제없이 화면에 로드되는지 확인', async() => {
+        await waitFor(() => expect(screen.getAllByText('개봉예정인 영화')).toBeTruthy());
+    });
 
-        await waitFor(() => findByTestId('loading-text')); 
-        await waitFor(() => findByTestId('section-title'));
+    test('popular API method 테스트 - 데이터가 문제없이 화면에 로드되는지 확인', async() => {
+        await waitFor(() => expect(screen.getAllByText('흥행중인 영화')).toBeTruthy());
     });
 });
