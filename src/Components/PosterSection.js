@@ -2,7 +2,7 @@ import React,{ useState } from 'react';
 import styled from 'styled-components';
 
 const SectionContainer = styled.section`
-
+    margin-top: 20px;
 `;
 
 const Title = styled.h2`
