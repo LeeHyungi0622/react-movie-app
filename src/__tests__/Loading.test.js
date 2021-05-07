@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Loading from './Loading';
+import Loading from '../Components/Loading';
 
 describe('<Loading /> 컴포넌트', () => {
     test('<Loading /> 컴포넌트가 문제없이 렌더링되는지 확인', () => {
