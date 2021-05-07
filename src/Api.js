@@ -1,8 +1,5 @@
 import axios from 'axios';
 
-// axios mockup 테스트를 위해서 axios.create를 이용해서 인스턴스를 사용하면 안된다.
-// axios-mock-adapter를 사용하면 가능
-// axios 인스턴스 생성
 export const axiosInstance = axios.create({
     baseURL: "https://api.themoviedb.org/3/",
     params: {
@@ -24,7 +21,7 @@ export const moviesApi = {
 };
 
 export const tvApi = {
-    toRated: () => axiosInstance.get("tv/top_rated"),
+    topRated: () => axiosInstance.get("tv/top_rated"),
     popular: () => axiosInstance.get("tv/popular"),
     airingToday: () => axiosInstance.get("tv/airing_today"),
     showDetail: (id) => axiosInstance.get(`tv/${id}`, {

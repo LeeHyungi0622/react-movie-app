@@ -30,7 +30,7 @@ const Container = styled.div`
     margin: 0 auto;
 `;
 
-const MovieArticle = styled.article`
+const Article = styled.article`
     position: relative;
     display: flex;
     justify-content: center;
@@ -46,14 +46,14 @@ const Poster = styled.img`
     box-shadow: 0 0 20px white;
 `;
 
-const MovieInfo = styled.div`
+const Info = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     margin-left: 150px;
 `;
 
-const MovieTitle = styled.h2`
+const Title = styled.h2`
     ${fontOutline};
     font-size: 35px;
     color: white;
@@ -76,7 +76,7 @@ const DetailButton = styled(Link)`
 `;
 
 
-const MovieSlider = ({ popular }) => {
+const MovieSlider = ({ popular, isMovie }) => {
     const carouselRef = useRef(null);
     const currentTimeout = useRef(null);
 
@@ -95,19 +95,19 @@ const MovieSlider = ({ popular }) => {
     return (
         <> 
         <Carousel enableAutoPlay ref={carouselRef} autoPlaySpeed={2500} onChange={onChange}>
-            { popular && popular.length>0 && popular.map( movie => {
-            const { backdrop_path, poster_path, original_title, vote_average, id } = movie;
+            { popular && popular.length>0 && popular.map( contents => {
+            const { backdrop_path, poster_path, original_title, vote_average, id, original_name } = contents;
             return(
                 <Container key={id}>
                     <BackdropContainer backdrop={`https://image.tmdb.org/t/p/original${backdrop_path}`}></BackdropContainer>
-                    <MovieArticle>
+                    <Article>
                         <Poster src={`https://image.tmdb.org/t/p/w300${poster_path}`}/>
-                        <MovieInfo>
-                            <MovieTitle>{original_title}</MovieTitle>
+                        <Info>
+                            <Title>{isMovie ? original_title : original_name}</Title>
                             <Rating>🌟 {vote_average} / 10</Rating>
                             <DetailButton>Detail 페이지</DetailButton>
-                        </MovieInfo>
-                    </MovieArticle>
+                        </Info>
+                    </Article>
                 </Container> 
              )
             })}
