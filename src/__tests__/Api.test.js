@@ -27,12 +27,7 @@ describe('Movie 컨텐츠 관련 API 테스트', () => {
     };
 
     mock
-        .onGet('https://api.themoviedb.org/3/movie/now_playing',{
-            params: {
-                api_key: "06e43891a2b919ee11ba3f3894d63374",
-                language: "en-US"
-            }
-        })
+        .onGet('https://api.themoviedb.org/3/movie/now_playing')
         .reply(200, {
             data
         })
@@ -40,24 +35,25 @@ describe('Movie 컨텐츠 관련 API 테스트', () => {
         .reply(200, {
             data
         })
-    
-    beforeEach(async() => {
-        render( <MemoryRouter><Movie /></MemoryRouter>);
-    });
 
-    test('초기에 Loading 컴포넌트가 화면에 로드되는지 확인', async() => {
-        await waitFor(() => screen.findByTestId('loading-text'));
-    });
+        beforeEach(async() => {
+            render( <MemoryRouter><Movie /></MemoryRouter>);
+            await waitFor(() => screen.findByTestId('loading-text'));
+        });
 
-    test('nowPlaying API method 테스트 - 데이터가 문제없이 화면에 로드되는지 확인', async() => {
-        await waitFor(() => expect(screen.getAllByText('현재 상영중인 영화')).toBeTruthy());
-    });
+        test('초기에 Loading 컴포넌트가 화면에 로드되는지 확인', async() => {
+            await waitFor(() => screen.findByTestId('loading-text'));
+        });
 
-    test('upcoming API method 테스트 - 데이터가 문제없이 화면에 로드되는지 확인', async() => {
-        await waitFor(() => expect(screen.getAllByText('개봉예정인 영화')).toBeTruthy());
-    });
+        test('nowPlaying API method 테스트 - 데이터가 문제없이 화면에 로드되는지 확인', async() => {
+            await waitFor(() => expect(screen.getAllByText('현재 상영중인 영화')).toBeTruthy());
+        });
 
-    test('popular API method 테스트 - 데이터가 문제없이 화면에 로드되는지 확인', async() => {
-        await waitFor(() => expect(screen.getAllByText('흥행중인 영화')).toBeTruthy());
-    });
+        test('upcoming API method 테스트 - 데이터가 문제없이 화면에 로드되는지 확인', async() => {
+            await waitFor(() => expect(screen.getAllByText('개봉예정인 영화')).toBeTruthy());
+        });
+
+        test('popular API method 테스트 - 데이터가 문제없이 화면에 로드되는지 확인', async() => {
+            await waitFor(() => expect(screen.getAllByText('흥행중인 영화')).toBeTruthy());
+        });
 });
