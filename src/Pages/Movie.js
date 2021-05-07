@@ -4,6 +4,7 @@ import { moviesApi } from '../Api';
 import Loading from '../Components/Loading';
 import PosterSection from '../Components/PosterSection';
 import Poster from '../Components/Poster';
+import MovieSlider from '../Components/MovieSlider';
 
 const Container = styled.div`
     padding: 30px;
@@ -36,6 +37,9 @@ const Movie = () => {
     return (
         loading ? <Loading /> : (
             <Container data-testid="movie-page-container">
+                {
+                    <MovieSlider popular={popular} />
+                }
                 { nowPlaying && nowPlaying.length > 0 && (
                     <PosterSection title="현재 상영중인 영화">
                         {
