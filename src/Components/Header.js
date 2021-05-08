@@ -38,9 +38,9 @@ const Header = ({location: { pathname }}) => {
     return (
         <HeaderWrapper>
             <List>  
-                <Item click={ pathname === '/'}><SLink to="/" data-testid="movie-menu">Movie</SLink></Item>
-                <Item click={ pathname === '/tv'}><SLink to="/tv" data-testid="tv-menu">TV</SLink></Item>
-                <Item click={ pathname === '/search'}><SLink to="/search" data-testid="search-menu">Search</SLink></Item>
+                <Item click={ pathname === '/' || pathname.includes('movie')}><SLink to="/" data-testid="movie-menu">Movie</SLink></Item>
+                <Item click={ pathname === '/tv' || pathname.includes('tv')}><SLink to="/tv" data-testid="tv-menu">TV</SLink></Item>
+                <Item click={ pathname === '/search' || pathname.includes('search')}><SLink to="/search" data-testid="search-menu">Search</SLink></Item>
             </List>
         </HeaderWrapper>
     );
