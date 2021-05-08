@@ -13,20 +13,28 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /\.jsx?$/,
-            loader: 'babel-loader',
-            options: {
-                presets: [
-                    ['@babel/preset-env', {
-                        targets: { browsers: ['last 2 chrome versions'] },
-                        debug: true,
-                    }],
-                    '@babel/preset-react',
-                ],
-                plugins: ['react-refresh/babel'],
+                test: /\.jsx?$/,
+                loader: 'babel-loader',
+                options: {
+                    presets: [
+                        ['@babel/preset-env', {
+                            targets: { browsers: ['last 2 chrome versions'] },
+                            debug: true,
+                        }],
+                        '@babel/preset-react',
+                    ],
+                    plugins: ['react-refresh/babel'],
+                },
+                exclude: path.join(__dirname, 'node_modules'),
             },
-            exclude: path.join(__dirname, 'node_modules'),
-        }],
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                loader: 'file-loader',
+                options: {
+                    name: 'img/[contenthash].[ext]'
+                }
+            }
+        ],
     },
     plugins: [
         new ReactRefreshWebpackPlugin(),
@@ -38,6 +46,7 @@ module.exports = {
     },
     devServer: {
         publicPath: '/dist',
-        hot: true
+        hot: true,
+        historyApiFallback: true
     }
 };

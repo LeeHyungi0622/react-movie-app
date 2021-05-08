@@ -48,7 +48,7 @@ const Year = styled.span`
 const Poster = ({ id, imageUrl, title, rating, year, isMovie }) => {
 
     return(
-        <Link to={ isMovie ? `/movie/${id}` : `/show/${id}`}>
+        <Link to={ isMovie ? `/movie/${id}/overview` : `/tv/${id}/overview`}>
             <PosterContainer data-testid="poster_container">                
                 <PosterImage bgImage={`https://image.tmdb.org/t/p/w300${imageUrl}`} />
                 <Rating>{`🌟 ${rating} / 10`}</Rating>
