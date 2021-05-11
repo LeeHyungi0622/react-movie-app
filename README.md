@@ -108,6 +108,18 @@
 
 → [https://github.com/LeeHyungi0622/react-movie-app/issues/26](https://github.com/LeeHyungi0622/react-movie-app/issues/26)
 
+🗓️ 2021.05.09(Mon)
+
+**(12) Issue29) 컨텐츠 상세보기 페이지 만들기**
+
+→ [https://github.com/LeeHyungi0622/react-movie-app/issues/29](https://github.com/LeeHyungi0622/react-movie-app/issues/29)
+
+🗓️ 2021.05.12(Wed)
+
+**(13) Issue32) Detail 페이지의 Country, Trailers, Language 탭 페이지 완성**
+
+→ [https://github.com/LeeHyungi0622/react-movie-app/issues/32](https://github.com/LeeHyungi0622/react-movie-app/issues/32)
+
 # **Project Screen Shots**
 
 **영화 컨텐츠 페이지**
@@ -120,6 +132,12 @@
 
 <div align="center">
   <img src="./img/tv_page_component.png" alt="TV 컨텐츠 페이지"/>
+</div>
+
+**상세보기 페이지**
+
+<div align="center">
+  <img src="./img/detail_page_component.png" alt="상세보기 페이지"/>
 </div>
 
 # **Installation and Setup Instruction**
