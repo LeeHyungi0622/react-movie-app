@@ -120,6 +120,10 @@
 
 → [https://github.com/LeeHyungi0622/react-movie-app/issues/32](https://github.com/LeeHyungi0622/react-movie-app/issues/32)
 
+**(14) Issue35) 컨텐츠 검색 결과 페이지 만들기**
+
+→ [https://github.com/LeeHyungi0622/react-movie-app/issues/35](https://github.com/LeeHyungi0622/react-movie-app/issues/35)
+
 # **Project Screen Shots**
 
 **영화 컨텐츠 페이지**
