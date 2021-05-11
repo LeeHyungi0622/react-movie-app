@@ -105,7 +105,7 @@ const MovieSlider = ({ popular, isMovie }) => {
                         <Info>
                             <Title>{isMovie ? original_title : original_name}</Title>
                             <Rating>🌟 {vote_average} / 10</Rating>
-                            <DetailButton>Detail 페이지</DetailButton>
+                            <DetailButton to={ isMovie ? `/movie/${id}/overview` : `/tv/${id}/overview`}>Detail 페이지</DetailButton>
                         </Info>
                     </Article>
                 </Container> 
