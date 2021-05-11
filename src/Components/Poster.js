@@ -50,7 +50,7 @@ const Poster = ({ id, imageUrl, title, rating, year, isMovie }) => {
     return(
         <Link to={ isMovie ? `/movie/${id}/overview` : `/tv/${id}/overview`}>
             <PosterContainer data-testid="poster_container">                
-                <PosterImage bgImage={`https://image.tmdb.org/t/p/w300${imageUrl}`} />
+                <PosterImage bgImage={imageUrl ? `https://image.tmdb.org/t/p/w300${imageUrl}` : '/img/noimage.png'} />
                 <Rating>{`🌟 ${rating} / 10`}</Rating>
                 <PosterCaption>
                     <Title data-testid="poster-title">

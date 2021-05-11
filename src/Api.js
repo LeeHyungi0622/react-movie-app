@@ -16,7 +16,9 @@ export const moviesApi = {
         append_to_response: "videos"
     }),
     search: (term) => axiosInstance.get("search/movie", {
-        query: term
+        params: {
+            query: term
+        }
     })
 };
 
